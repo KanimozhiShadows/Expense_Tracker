@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>💸 Enhanced Expense Tracker</h2>
+
+    <div class="balance">
+      <h3>Your Balance</h3>
+      <h1 id="balance">₹0.00</h1>
+    </div>
+
+    <div class="inc-exp-container">
+      <div>
+        <h4>Income</h4>
+        <p id="money-plus" class="money plus">+₹0.00</p>
+      </div>
+      <div>
+        <h4>Expense</h4>
+        <p id="money-minus" class="money minus">-₹0.00</p>
+      </div>
+    </div>
+
+    <div class="filters">
+      <button onclick="filterType('all')">All</button>
+      <button onclick="filterType('income')">Income</button>
+      <button onclick="filterType('expense')">Expense</button>
+    </div>
+
+    <h3>History</h3>
+    <ul id="list" class="list"></ul>
+
+    <h3>Add New Transaction</h3>
+    <form id="form">
+      <div class="form-control">
+        <label for="text">Text</label>
+        <input type="text" id="text" placeholder="Enter description..." required />
+      </div>
+      <div class="form-control">
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" placeholder="Enter amount..." required />
+      </div>
+      <div class="form-control">
+        <label for="date">Date</label>
+        <input type="date" id="date" required />
+      </div>
+      <button class="btn" type="submit">Add Transaction</button>
+    </form>
+
+    <button class="btn" onclick="exportToExcel()">Export to Excel</button>
+
+    <h3>Monthly Summary</h3>
+    <ul id="monthly-summary" class="list"></ul>
+
+    <canvas id="expenseChart" width="400" height="200"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
